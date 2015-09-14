@@ -26,12 +26,11 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-	it('defines a URL for each element', function () {
+	it('defines a URL for each element of allFeeds', function () {
             for (var feedIdx in allFeeds) {
                 var feed = allFeeds[feedIdx]
                 expect(feed['url']).toBeDefined();
@@ -43,6 +42,13 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+	it('defines a name for each element of allFeeds', function () {
+            for (var feedIdx in allFeeds) {
+                var feed = allFeeds[feedIdx]
+                expect(feed['name']).toBeDefined();
+                expect(feed['name']).not.toBe('');
+            }
+	});
     });
 
 
