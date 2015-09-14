@@ -7,7 +7,8 @@
  */
 
 // The names and URLs to all of the feeds we'd like available.
-var allFeeds = [
+var allFeeds = [];
+var XallFeeds = [
     {
         name: 'Udacity Blog',
         url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
