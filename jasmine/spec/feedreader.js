@@ -63,11 +63,17 @@ $(function() {
 	     expect($('.menu-hidden .menu').length).toEqual(1);
          });
 
-         /* TODO: Write a test that ensures the menu changes
+         /* a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         it('toggles the menu visibility when menu icon is clicked', function () {
+             $('.menu-icon-link').click();
+	     expect($('.menu-hidden .menu').length).toEqual(0);
+             $('.menu-icon-link').click();
+	     expect($('.menu-hidden .menu').length).toEqual(1);
+         });
     });
 
     describe('Initial Entries', function() {
