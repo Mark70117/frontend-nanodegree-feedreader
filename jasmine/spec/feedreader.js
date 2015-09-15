@@ -97,10 +97,25 @@ $(function() {
     });
 
     describe('New Feed Selection', function() {
+        var oldContent;
+        var newContent;
+	beforeEach(function (done) {
+            loadFeed(0, function () {
+	        oldContent = $('.feed').html();
+            });
+            loadFeed(1, function () {
+	        newContent = $('.feed').html();
+                done();
+            });
+	});
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('should change content on additional feedLoad call', function (done) {
+            expect(newContent).not.toBe(oldContent);
+            done();
+        });
     });
 }());
