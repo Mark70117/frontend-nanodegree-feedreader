@@ -1,10 +1,12 @@
 # frontend-nanodegree-feedreader
 
 This is Project 6 in the Udacity Front End Nanodegree Program.
+The goal of the project is to demonstrate skill with the Jasmine
+testing framework.
 
 ## Running the app and test 
 
-To run the app and,  more importantly for this assignment, the test visit
+To run the app and, more importantly for this assignment, run the test, visit
 http://mark70117.github.io/frontend-nanodegree-feedreader/
 
 The tests needed for competion of the the project will run automatically
@@ -34,13 +36,13 @@ Jasmine__TopLevel__Suite
 ## Using the Feed Reader.
 
 Actual navigation within the Feed Reader is not part of the
-grading rubric, but it one would like to read some news, one
+grading rubric, but if one would like to read some news, one
 is welcome to.
 
 The 'hamburger' icon in the top left corner of the screen
-will reveal a menu of feeds to chose from when clicked.
+will reveal a menu of feeds to choose from when clicked.
 
-Titles are article entries are also links to the articles.
+Titles of article entries are also links to the articles.
 
 Clicking on the title will take you away from the page to
 the linked to article.  You will need to use the back button
