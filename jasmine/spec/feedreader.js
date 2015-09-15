@@ -41,7 +41,7 @@ $(function () {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it ('defines a URL for each element of allFeeds', function () {
+        it ('define a URL for each element of allFeeds', function () {
             for (var feedIdx in allFeeds) {
                 var feed = allFeeds[feedIdx];
                 expect(feed.url).toBeDefined();
@@ -53,7 +53,7 @@ $(function () {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        it('defines a name for each element of allFeeds', function () {
+        it ('define a name for each element of allFeeds', function () {
             for (var feedIdx in allFeeds) {
                 var feed = allFeeds[feedIdx];
                 expect(feed.name).toBeDefined();
@@ -69,7 +69,7 @@ $(function () {
          * hidden by default.
          * $('body').addClass('menu-hidden') is called to hide menu
          */
-         it('hides the menu element by default', function () {
+         it ('is hidden by default', function () {
             expect($('body').hasClass('menu-hidden')).toBe(true);
             expect($('.menu-hidden .menu').length).toEqual(1);
          });
@@ -79,7 +79,7 @@ $(function () {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-         it('toggles the menu visibility when menu icon is clicked', function () {
+         it ('changes from hidden to visible and, then, visible to hidden when menu icon is clicked', function () {
             $('.menu-icon-link').click();
             expect($('.menu-hidden .menu').length).toEqual(0);
             $('.menu-icon-link').click();
@@ -100,7 +100,7 @@ $(function () {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        it('should get some at least a single .entry element when loadFeed is called', function (done) {
+        it ('should be at least one in count when loadFeed is called', function (done) {
             expect(beforeFeedEntryCount).toBe(0);
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
@@ -125,7 +125,7 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('should change content on additional feedLoad call', function (done) {
+        it ('should change content from the initial feedLoad call', function (done) {
             expect(newContent).not.toBe(oldContent);
             done();
         });

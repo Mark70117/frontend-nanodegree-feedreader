@@ -19,15 +19,15 @@ in full it should read
 Jasmine__TopLevel__Suite
   RSS Feeds
     are defined
-    defines a URL for each element of allFeeds
-    defines a name for each element of allFeeds
+    define a URL for each element of allFeeds
+    define a name for each element of allFeeds
   The menu
-    hides the menu element by default
-    toggles the menu visibility when menu icon is clicked
+    is hidden by default
+    changes from hidden to visible and, then, visible to hidden when menu icon is clicked
   Initial Entries
-    should get some at least a single .entry element when loadFeed is called
+    should be at least one in count when loadFeed is called
   New Feed Selection
-    should change content on additional feedLoad call
+    should change content from the initial feedLoad call
 ```
 
 
