@@ -14,6 +14,22 @@ The Jasmine test results will be at the bottom of the page.
 
 They should read "7 specs, 0 failures"
 
+in full it should read
+```
+Jasmine__TopLevel__Suite
+  RSS Feeds
+    are defined
+    defines a URL for each element of allFeeds
+    defines a name for each element of allFeeds
+  The menu
+    hides the menu element by default
+    toggles the menu visibility when menu icon is clicked
+  Initial Entries
+    should get some at least a single .entry element when loadFeed is called
+  New Feed Selection
+    should change content on additional feedLoad call
+```
+
 
 ## Using the Feed Reader.
 
