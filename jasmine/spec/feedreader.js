@@ -1,3 +1,13 @@
+/*global
+    $,
+    describe,
+    it,
+    expect,
+    beforeEach,
+    allFeeds,
+    loadFeed
+*/ /* for jshint */
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -8,12 +18,13 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
-$(function() {
+$(function () {
+    'use strict';
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
-    describe('RSS Feeds', function() {
+    describe('RSS Feeds', function () {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
@@ -21,46 +32,46 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
-        it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+        it ('are defined', function () {
+            expect (allFeeds).toBeDefined();
+            expect (allFeeds.length).not.toBe(0);
         });
 
         /* a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-	it('defines a URL for each element of allFeeds', function () {
+        it ('defines a URL for each element of allFeeds', function () {
             for (var feedIdx in allFeeds) {
-                var feed = allFeeds[feedIdx]
-                expect(feed['url']).toBeDefined();
-                expect(feed['url']).not.toBe('');
+                var feed = allFeeds[feedIdx];
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe('');
             }
-	});
+        });
 
         /* a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-	it('defines a name for each element of allFeeds', function () {
+        it('defines a name for each element of allFeeds', function () {
             for (var feedIdx in allFeeds) {
-                var feed = allFeeds[feedIdx]
-                expect(feed['name']).toBeDefined();
-                expect(feed['name']).not.toBe('');
+                var feed = allFeeds[feedIdx];
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe('');
             }
-	});
+        });
     });
 
 
-    describe('The menu', function() {
+    describe('The menu', function () {
 
         /* a test that ensures the menu element is
          * hidden by default.
          * $('body').addClass('menu-hidden') is called to hide menu
          */
          it('hides the menu element by default', function () {
-             expect($('body').hasClass('menu-hidden')).toBe(true);
-	     expect($('.menu-hidden .menu').length).toEqual(1);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($('.menu-hidden .menu').length).toEqual(1);
          });
 
          /* a test that ensures the menu changes
@@ -69,19 +80,19 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('toggles the menu visibility when menu icon is clicked', function () {
-             $('.menu-icon-link').click();
-	     expect($('.menu-hidden .menu').length).toEqual(0);
-             $('.menu-icon-link').click();
-	     expect($('.menu-hidden .menu').length).toEqual(1);
+            $('.menu-icon-link').click();
+            expect($('.menu-hidden .menu').length).toEqual(0);
+            $('.menu-icon-link').click();
+            expect($('.menu-hidden .menu').length).toEqual(1);
          });
     });
 
-    describe('Initial Entries', function() {
+    describe('Initial Entries', function () {
         var beforeFeedEntryCount ;
-	beforeEach(function (done) {
+        beforeEach(function (done) {
             beforeFeedEntryCount = $('.feed .entry').length;
-            loadFeed(0, function() { done(); });
-	});
+            loadFeed(0, function () { done(); });
+        });
 
         /* a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -96,20 +107,21 @@ $(function() {
         });
     });
 
-    describe('New Feed Selection', function() {
+    describe('New Feed Selection', function () {
         var oldContent;
         var newContent;
-	beforeEach(function (done) {
+
+        beforeEach(function (done) {
             loadFeed(0, function () {
-	        oldContent = $('.feed').html();
+                oldContent = $('.feed').html();
             });
             loadFeed(1, function () {
-	        newContent = $('.feed').html();
+                newContent = $('.feed').html();
                 done();
             });
-	});
+        });
 
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
