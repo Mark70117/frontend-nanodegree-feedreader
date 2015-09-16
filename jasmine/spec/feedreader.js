@@ -88,14 +88,15 @@ $(function () {
             $('.menu-icon-link').click();
             // check the internal state of program is as desired
             expect($('body').hasClass('menu-hidden')).toBe(false);
-            // check the DOM properly show desired state
+            // check the DOM properly show desired state: no object with both class menu and menu-hidden
+            expect($('.menu').length).toEqual(1);
             expect($('.menu-hidden .menu').length).toEqual(0);
 
-            // second click should turn back to default state
+            // second click should turn back to default state (hidden)
             $('.menu-icon-link').click();
             // check the internal state of program is as desired
             expect($('body').hasClass('menu-hidden')).toBe(true);
-            // check the DOM properly show desired state
+            // check the DOM properly show desired state: one object with class menu and menu-hidden
             expect($('.menu-hidden .menu').length).toEqual(1);
          });
     });
