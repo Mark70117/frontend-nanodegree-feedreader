@@ -42,11 +42,10 @@ $(function () {
          * and that the URL is not empty.
          */
         it ('define a URL for each element of allFeeds', function () {
-            for (var feedIdx in allFeeds) {
-                var feed = allFeeds[feedIdx];
+            allFeeds.forEach(function (feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toBe('');
-            }
+            });
         });
 
         /* a test that loops through each feed
@@ -54,11 +53,10 @@ $(function () {
          * and that the name is not empty.
          */
         it ('define a name for each element of allFeeds', function () {
-            for (var feedIdx in allFeeds) {
-                var feed = allFeeds[feedIdx];
+            allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toBe('');
-            }
+            });
         });
     });
 
