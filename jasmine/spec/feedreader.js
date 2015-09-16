@@ -126,12 +126,17 @@ $(function () {
         var newContent;
 
         beforeEach(function (done) {
+            oldContent = '';  // ensure not undefined
+            newContent = '';  // ensure not undefined
             loadFeed(0, function () {
                 oldContent = $('.feed').html();
-            });
-            loadFeed(1, function () {
-                newContent = $('.feed').html();
-                done();
+                // running the loadFeed(1) in the completion callback of loadFeed(0)
+                // will assure both loadFeed(1) and loadFeed(0) have completed async
+                // calls
+                loadFeed(1, function () {
+                    newContent = $('.feed').html();
+                    done();
+                });
             });
         });
 
