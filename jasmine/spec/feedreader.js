@@ -63,12 +63,16 @@ $(function () {
 
     describe('The menu', function () {
 
-        /* a test that ensures the menu element is
-         * hidden by default.
-         * $('body').addClass('menu-hidden') is called to hide menu
-         */
+         /* a test that ensures the menu element is
+          * hidden by default.
+          * $('body').addClass('menu-hidden') is called to hide menu
+          * check body.hasClass('menu-hidden') to verify desired record keeping within program
+          * check for element with classes menu-hidden and menu to verify style change to hide menu
+          */
          it ('is hidden by default', function () {
+            // check the internal state of program is as desired
             expect($('body').hasClass('menu-hidden')).toBe(true);
+            // check the DOM properly show desired state
             expect($('.menu-hidden .menu').length).toEqual(1);
          });
 
@@ -76,11 +80,22 @@ $(function () {
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
+          * check body.hasClass('menu-hidden') to verify desired record keeping within program
+          * check for element with classes menu-hidden and menu to verify style change to hide/display menu
           */
          it ('changes from hidden to visible and, then, visible to hidden when menu icon is clicked', function () {
+            // should change from hidden to visible on first click
             $('.menu-icon-link').click();
+            // check the internal state of program is as desired
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+            // check the DOM properly show desired state
             expect($('.menu-hidden .menu').length).toEqual(0);
+
+            // second click should turn back to default state
             $('.menu-icon-link').click();
+            // check the internal state of program is as desired
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+            // check the DOM properly show desired state
             expect($('.menu-hidden .menu').length).toEqual(1);
          });
     });
